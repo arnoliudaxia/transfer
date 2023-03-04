@@ -32,7 +32,6 @@ scoop install transfer
 | CatBox | `cat` | https://catbox.moe/ | 200MB |
 | Fileio | `fio` | https://file.io/ | 100MB | 
 | Wenshushu | `wss` | https://wenshushu.cn/ | 2GB |
-| WeTransfer | `wet` | https://wetransfer.com/ | 2GB |
 | Transfer.sh | `trs` | https://transfer.sh/ | - |
 | LitterBox | `lit` | https://litterbox.catbox.moe/ | 1GB |
 | 1Fichier | `fic` | https://www.1fichier.com/ | 300GB |
