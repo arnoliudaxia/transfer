@@ -38,7 +38,6 @@ scoop install transfer
 | Null | `null` | https://0x0.st/ | 512M |
 | Infura (ipfs) | `inf` | https://infura.io/ | 128M |
 | Quickfile | `qf` | https://quickfile.cn | 512M |
-| Anonfile | `anon` | https://anonfile.com | 10G |
 | DownloadGG | `gg` | https://download.gg/ | - |
 
 需要登录才能使用的服务：
