@@ -35,10 +35,8 @@ scoop install transfer
 | Wenshushu | `wss` | https://wenshushu.cn/ | 2GB |
 | Transfer.sh | `trs` | https://transfer.sh/ | slow |
 | LitterBox | `lit` | https://litterbox.catbox.moe/ | 1GB |
-| 1Fichier | `fic` | https://www.1fichier.com/ | 300GB |
 | Null | `null` | https://0x0.st/ | 512M |
 | Infura (ipfs) | `inf` | https://infura.io/ | 128M |
-| Musetransfer | `muse` | https://musetransfer.com | 5GB |
 | Quickfile | `qf` | https://quickfile.cn | 512M |
 | Anonfile | `anon` | https://anonfile.com | 10G |
 | DownloadGG | `gg` | https://download.gg/ | - |
