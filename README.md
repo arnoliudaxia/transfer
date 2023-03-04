@@ -4,31 +4,12 @@
 
 🍭集合多个 API 的大文件传输工具
 
-Large file transfer tool with multiple file transfer services support
-
-## note
-
-部分 API 可能不是很稳定，如有问题可以及时提 issue 或者 pr
-
-如使用过程中出现任何问题可以先尝试使用 beta 版程序，说不定已经修复过了这个 bug
-
 ## install
-```shell
-go install github.com/Mikubill/transfer@latest
-```
-Go 语言程序，可直接在[发布页](https://github.com/Mikubill/transfer/releases)下载使用。
-
-或者使用安装脚本：
 
 ```shell script
 # Stable Release
 curl -sL https://git.io/file-transfer | sh 
-
-# Beta Release
-curl -sL https://git.io/file-transfer | bash -s beta
 ```
-
-Beta 即为实时构建版本，不一定能正常运行，仅建议用作测试。
 
 ## support
 
@@ -44,7 +25,6 @@ Beta 即为实时构建版本，不一定能正常运行，仅建议用作测试
 
 |  Name  | Command | Site  | Limit |
 |  ----  | ----  | ----  |  ----  | 
-| Airportal | `arp` | https://airportal.cn/ | - |
 | CatBox | `cat` | https://catbox.moe/ | 200MB |
 | Fileio | `fio` | https://file.io/ | 100MB | 
 | GoFile | `gof` | https://gofile.io/ | - |
