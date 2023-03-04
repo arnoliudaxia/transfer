@@ -5,10 +5,14 @@
 🍭集合多个 API 的大文件传输工具
 
 ## install
-
+直接下载二进制
 ```shell script
 # Stable Release
 curl -sL https://git.io/file-transfer | sh 
+```
+scoop
+```shell script
+scoop install transfer
 ```
 
 ## support
@@ -47,13 +51,6 @@ curl -sL https://git.io/file-transfer | sh
 | Lanzous | `lzs` | https://www.lanzous.com/ | 
 | Notion | `not` | https://www.notion.so/ | 
 | CowTransfer | `cow` | https://www.cowtransfer.com/ | 
-
-已失效或不可用的服务：
-
-|  Name   | Site  | 
-|  ----  | ----  |  
-| Vim-cn | https://img.vim-cn.com/ |
-| WhiteCats | http://whitecats.dip.jp/ |
 
 部分服务仅支持上传；部分服务需要使用 beta 版本。
 
