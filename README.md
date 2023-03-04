@@ -29,7 +29,7 @@ scoop install transfer
 
 |  Name  | Command | Site  | Limit |
 |  ----  | ----  | ----  |  ----  |
-| WeTransfer | `wet` | https://wetransfer.com/ | 2GB |
+| ⭐WeTransfer | `wet` | https://wetransfer.com/ | 2GB |
 | CatBox | `cat` | https://catbox.moe/ | 200MB |
 | Fileio | `fio` | https://file.io/ | 100MB | 
 | Wenshushu | `wss` | https://wenshushu.cn/ | 2GB |
@@ -94,90 +94,6 @@ scoop install transfer
 | ImgBox | `-b box` | https://imgbox.com/ | 
 
 ## usage 
-
-```text
-Transfer is a very simple big file transfer tool.
-
-Backend Support:
-  airportal(arp), catbox(cat), cowtransfer(cow), fileio(fio),
-  gofile(gof), lanzous(lzs), litterbox(lit), null(0x0), 
-  wetransfer(wet), vimcn(vim)
-
-Usage:
-  transfer [flags]
-  transfer [command]
-
-Examples:
-  # upload via wenshushu
-  ./transfer wss <your-file>
-
-  # download link
-  ./transfer https://.../
-
-Available Commands:
-  decrypt     Decrypt a file
-  encrypt     Encrypt a file
-  hash        Hash a file
-  help        Help about any command
-  image       Upload a image to imageBed
-
-Flags:
-      --encrypt              encrypt stream when upload
-      --encrypt-key string   specify the encrypt key
-  -f, --force                attempt to download file regardless error
-  -h, --help                 help for transfer
-      --keep                 keep program active when process finish
-      --no-progress          disable progress bar to reduce output
-  -o, --output string        download to another file/folder (default ".")
-  -p, --parallel int         set download task count (default 3)
-      --silent               enable silent mode to mute output
-  -t, --ticket string        set download ticket
-      --verbose              enable verbose mode to debug
-      --version              show version and exit
-
-Use "transfer [command] --help" for more information about a command.
-```
-
-### upload & download
-
-所有上传操作都建议指定一个 API，如不指定将使用默认 (filelink.Backend)。加上想要传输的文件/文件夹即可。
-
-```text
-
-Upload a file or folder.
-
-Usage:
-  transfer [flags] <files>
-
-Aliases:
-  upload, up
-
-Flags:
-      --encrypt              Encrypt stream when upload
-      --encrypt-key string   Specify the encrypt key
-  -h, --help                 help for upload
-
-Global Flags:
-      --no-progress          disable progress bar to reduce output
-      --silent               enable silent mode to mute output
-      --keep                 keep program active when process finish
-      --version              show version and exit
-
-Use "transfer upload [command] --help" for more information about a command.
-```
-
-Examples
-
-```shell script
-# upload
-./transfer balabala.mp4
-
-# upload
-./transfer wss balabala.mp4
-
-# upload folder
-./transfer wet /path/
-```
 
 不同的 Backend 提供不同的选项，可以在帮助中查看关于该服务的相关信息。
 
