@@ -28,11 +28,12 @@ scoop install transfer
 目前支持的文件传输服务：
 
 |  Name  | Command | Site  | Limit |
-|  ----  | ----  | ----  |  ----  | 
+|  ----  | ----  | ----  |  ----  |
+| WeTransfer | `wet` | https://wetransfer.com/ | 2GB |
 | CatBox | `cat` | https://catbox.moe/ | 200MB |
 | Fileio | `fio` | https://file.io/ | 100MB | 
 | Wenshushu | `wss` | https://wenshushu.cn/ | 2GB |
-| Transfer.sh | `trs` | https://transfer.sh/ | - |
+| Transfer.sh | `trs` | https://transfer.sh/ | slow |
 | LitterBox | `lit` | https://litterbox.catbox.moe/ | 1GB |
 | 1Fichier | `fic` | https://www.1fichier.com/ | 300GB |
 | Null | `null` | https://0x0.st/ | 512M |
