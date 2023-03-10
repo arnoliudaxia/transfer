@@ -10,6 +10,9 @@
 # Stable Release
 curl -sL https://git.io/file-transfer | sh 
 ```
+或者直接下压缩包(linux amd64)
+- https://gh.ddlc.top/https://github.com/Mikubill/transfer/releases/download/v0.4.17/transfer_0.4.17_linux_amd64.tar.gz
+- https://download.fastgit.org/Mikubill/transfer/releases/download/v0.4.17/transfer_0.4.17_linux_amd64.tar.gz
 scoop
 ```shell script
 scoop install transfer
