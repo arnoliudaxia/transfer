@@ -47,19 +47,10 @@ scoop install transfer
 | Quickfile | `qf` | https://quickfile.cn | 512M |
 | DownloadGG | `gg` | https://download.gg/ | - |
 
-需要登录才能使用的服务：
-
 |  Name   | Command | Site  | 
-|  ----  | ----  |  ----  |  
-| Lanzous | `lzs` | https://www.lanzous.com/ | 
-| Notion | `not` | https://www.notion.so/ | 
 | CowTransfer | `cow` | https://www.cowtransfer.com/ | 
 
-部分服务仅支持上传；部分服务需要使用 beta 版本。
-
-[notion 上传相关说明](https://github.com/Mikubill/transfer#notion)
-
-[登陆上传相关说明](https://github.com/Mikubill/transfer#login)
+[登陆上传相关说明](#login)
 
 ## picbed support
 
@@ -99,104 +90,14 @@ scoop install transfer
 
 ## usage 
 
-不同的 Backend 提供不同的选项，可以在帮助中查看关于该服务的相关信息。
-
-```text
-➜  ./transfer cow
-cowTransfer - https://cowtransfer.com/
-
-  Size Limit:             2G(Anonymous), ~100G(Login)
-  Upload Service:         qiniu object storage, East China
-  Download Service:       qiniu cdn, Global
-
-Usage:
-  transfer cow [flags]
-
-Aliases:
-  cow, cow, cowtransfer
-
-Flags:
-      --block int         Upload block size (default 262144)
-  -c, --cookie string     Your user cookie (optional)
-      --hash              Check hash after block upload
-  -h, --help              help for cow
-  -p, --parallel int      Set the number of upload threads (default 2)
-      --password string   Set password
-  -s, --single            Upload multi files in a single link
-  -t, --timeout int       Request retry/timeout limit in second (default 10)
-
-Global Flags:
-      --encrypt              encrypt stream when upload
-      --encrypt-key string   specify the encrypt key
-      --keep                 keep program active when process finish
-      --no-progress          disable progress bar to reduce output
-      --silent               enable silent mode to mute output
-      --verbose              enable verbose mode to debug
-      --version              show version and exit
-```
-
-下载操作会自动识别支持的链接，不需要指定服务名称。
+上传完下载操作会自动识别支持的链接，不需要指定服务名称。
 
 ```shell script
 # download file
 ./transfer https://.../
 ```
 
-试验性功能：`--encrypt`选项可以在上传时将文件加密，下载时需要配合`--decrypt`选项才能正确下载文件。（当然也可以先下载后再解密）加密方式为 AES-CBC，默认会自动生成一个密码，也可以通过`--encrypt-key`指定一个。
 
-```shell script 
-# encrypt stream when upload
-➜ ./transfer wss --encrypt transfer
-Warning: crypto mode is enabled.
-Note: Crypto mode still in beta and abnormalities may occur, do not over-rely on this function.
-Key is not set or incorrect: Setting it to 94d0500605b372245dc77f95fbc20010
-...
-
-# encrypt with key
-➜ ./transfer wss --encrypt --encrypt-key=123 transfer
-Warning: crypto mode is enabled.
-Note: Crypto mode still in beta and abnormalities may occur, do not over-rely on this function.
-Encrypt using key: 123
-...
-
-# decrypt stream when download
-➜ ./transfer --encrypt --encrypt-key=123 https://....
-Warning: crypto mode is enabled.
-Note: Crypto mode is not compatible with multi thread download mode, setting parallel to 1.
-...
-```
-
-### notion
-
-notion 的上传需要以下参数
-
-所有参数不带符号，即形如`ce6ad860c0864286a4392d6c2e786e8`即可。
-
-```
--p Page ID
-```
-必须，即页面链接中的那个一大长串的 ID。建议直接使用 Workspace 的次级页面作为上传目标以便程序能自动获取当前 Workspace ID，否则需要通过 -s 参数指定 Space ID。
-
-```
--t token
-```
-必须，即 cookie 中的`www.notion.so -> token_v2`项。
-
-```
--s Workspace ID
-```
-非必须，适用于非次级页面/嵌套的情况，手动设定 Workspace ID
-
-上传后默认返回一个自动签名链接，私有页面可以在浏览器登录状态下直接点击下载。对于公开页面的文件链接，可以尝试去掉 userid 使用，但必须保留 id 和 table 两项。
-
-Example
-```bash
-❯ ./transfer not -p ... -t ... install.sh        
-Local: /.../install.sh
-1.03 KiB / 1.03 KiB [--------------------] 100.00% 810 B p/s 2s
-syncing blocks....
-Download Link: https://www.notion.so/signed/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F...%2Finstall.sh?table=block&id=...&name=install.sh&userId=...&cache=v2
-```
 
 ### login 
 
