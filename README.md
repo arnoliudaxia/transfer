@@ -103,43 +103,6 @@ cat backup.tar.gz.* | tar -xzvf -
 ```
 
 
-
-### login 
-
-部分 backend 支持登陆环境下上传，使用时只需要提供对应的 cookie 即可。
-
-CowTransfer
-
-```shell script
-# login to upload
-./transfer cow --cookie="remember-mev2=...;" -a "<cow-auth-token>" file
-```
-
-AirPortal
-
-```shell script
-# login to upload
-./transfer arp -t <your-token> -u <your-username> file
-```
-
-TmpLink 
-```shell script
-# login to upload
-./transfer tmp -t <your-token> file
-```
-
-Lanzous
-
-蓝奏云可以只使用 `phpdisk_info` 项作为 cookie 上传文件，但可能无法进行文件管理（如删除等）。如需要上传到指定目录或进行文件管理操作需要在 cookie 中指定 `folder_id_c` 的值，如：
-
-```shell script
-# login to upload (without path)
-./transfer lzs --cookie='phpdisk_info=...' file
-
-# login to upload (with path)
-./transfer lzs --cookie='phpdisk_info=...; folder_id_c=...;' file
-```
-
 ### image
 
 transfer 也支持上传图片至图床，默认自动使用阿里图床上传，也可以通过 `-b, --backend` 指定图床。
