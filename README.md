@@ -47,10 +47,15 @@ scoop install transfer
 | Quickfile | `qf` | https://quickfile.cn | 512M |
 | DownloadGG | `gg` | https://download.gg/ | - |
 
-|  Name   | Command | Site  | 
-| CowTransfer | `cow` | https://www.cowtransfer.com/ | 
+对于大文件，实测最好分割为1G的压缩分卷上传
+```
+#压缩前分卷
+tar -czvf - input_dir/ | split -b 1G -d -a 2 - backup.tar.gz.
+#压缩后分卷
+split -b 1G -d -a 2 backup.tar.gz backup.tar.gz.
 
-[登陆上传相关说明](#login)
+cat backup.tar.gz.* | tar -xzvf -
+```
 
 ## picbed support
 
