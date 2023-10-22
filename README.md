@@ -36,11 +36,9 @@ scoop install transfer
 
 |  Name  | Command | Site  | Limit |
 |  ----  | ----  | ----  |  ----  |
-| ⭐WeTransfer | `wet` | https://wetransfer.com/ | 2GB |
 | CatBox | `cat` | https://catbox.moe/ | 200MB |
 | Fileio | `fio` | https://file.io/ | 100MB | 
 | Wenshushu | `wss` | https://wenshushu.cn/ | 2GB |
-| Transfer.sh | `trs` | https://transfer.sh/ | slow |
 | LitterBox | `lit` | https://litterbox.catbox.moe/ | 1GB |
 | Null | `null` | https://0x0.st/ | 512M |
 | Infura (ipfs) | `inf` | https://infura.io/ | 128M |
