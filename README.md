@@ -45,6 +45,7 @@ scoop install transfer
 | Null | `null` | https://0x0.st/ | 512M |
 | Infura (ipfs) | `inf` | https://infura.io/ | 128M |
 | Quickfile | `qf` | https://quickfile.cn | 512M |
+| Anonfile | `anon` | https://anonfile.com | 20G |
 | DownloadGG | `gg` | https://download.gg/ | - |
 
 对于大文件，实测最好分割为1G的压缩分卷上传
@@ -95,7 +96,127 @@ cat backup.tar.gz.* | tar -xzvf -
 
 ## usage 
 
-上传完下载操作会自动识别支持的链接，不需要指定服务名称。
+```text
+Transfer is a very simple big file transfer tool.
+
+Backend Support:
+  airportal(arp), catbox(cat), cowtransfer(cow), fileio(fio),
+  gofile(gof), lanzous(lzs), litterbox(lit), null(0x0), 
+  wetransfer(wet), vimcn(vim)
+
+Usage:
+  transfer [flags]
+  transfer [command]
+
+Examples:
+  # upload via wenshushu
+  ./transfer wss <your-file>
+
+  # download link
+  ./transfer https://.../
+
+Available Commands:
+  decrypt     Decrypt a file
+  encrypt     Encrypt a file
+  hash        Hash a file
+  help        Help about any command
+  image       Upload a image to imageBed
+
+Flags:
+      --encrypt              encrypt stream when upload
+      --encrypt-key string   specify the encrypt key
+  -f, --force                attempt to download file regardless error
+  -h, --help                 help for transfer
+      --keep                 keep program active when process finish
+      --no-progress          disable progress bar to reduce output
+  -o, --output string        download to another file/folder (default ".")
+  -p, --parallel int         set download task count (default 3)
+      --silent               enable silent mode to mute output
+  -t, --ticket string        set download ticket
+      --verbose              enable verbose mode to debug
+      --version              show version and exit
+
+Use "transfer [command] --help" for more information about a command.
+```
+
+### upload & download
+
+所有上传操作都建议指定一个 API，如不指定将使用默认 (fileio.Backend)。加上想要传输的文件/文件夹即可。
+
+```text
+
+Upload a file or folder.
+
+Usage:
+  transfer [flags] <files>
+
+Aliases:
+  upload, up
+
+Flags:
+      --encrypt              Encrypt stream when upload
+      --encrypt-key string   Specify the encrypt key
+  -h, --help                 help for upload
+
+Global Flags:
+      --no-progress          disable progress bar to reduce output
+      --silent               enable silent mode to mute output
+      --keep                 keep program active when process finish
+      --version              show version and exit
+
+Use "transfer upload [command] --help" for more information about a command.
+```
+
+Examples
+
+```shell script
+# upload
+./transfer balabala.mp4
+
+# upload
+./transfer wss balabala.mp4
+
+# upload folder
+./transfer wet /path/
+```
+
+不同的 Backend 提供不同的选项，可以在帮助中查看关于该服务的相关信息。
+
+```text
+➜  ./transfer cow
+cowTransfer - https://cowtransfer.com/
+
+  Size Limit:             2G(Anonymous), ~100G(Login)
+  Upload Service:         qiniu object storage, East China
+  Download Service:       qiniu cdn, Global
+
+Usage:
+  transfer cow [flags]
+
+Aliases:
+  cow, cow, cowtransfer
+
+Flags:
+      --block int         Upload block size (default 262144)
+  -c, --cookie string     Your user cookie (optional)
+      --hash              Check hash after block upload
+  -h, --help              help for cow
+  -p, --parallel int      Set the number of upload threads (default 2)
+      --password string   Set password
+  -s, --single            Upload multi files in a single link
+  -t, --timeout int       Request retry/timeout limit in second (default 10)
+
+Global Flags:
+      --encrypt              encrypt stream when upload
+      --encrypt-key string   specify the encrypt key
+      --keep                 keep program active when process finish
+      --no-progress          disable progress bar to reduce output
+      --silent               enable silent mode to mute output
+      --verbose              enable verbose mode to debug
+      --version              show version and exit
+```
+
+下载操作会自动识别支持的链接，不需要指定服务名称。
 
 ```shell script
 # download file
